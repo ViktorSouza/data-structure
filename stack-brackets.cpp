@@ -14,16 +14,12 @@ int main(){
 	for (char &s: str){
 		// If the char is ), ] or }
 		if(close_brackets.find(s) != string::npos){
-			if(brackets.size() == 0){
+			if((brackets.size() == 0)|| (close_brackets.find(s) != open_brackets.find(brackets.top()))){
 				isValid = false;
 				break;
 			}
-			// Check if the close bracket is valid
-			if(close_brackets.find(s) != open_brackets.find(brackets.top())){
-				isValid = false;
-				break;
-			}
-				brackets.pop();
+
+			brackets.pop();
 		}
 		// Case (, [ or {
 		else{
