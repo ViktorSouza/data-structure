@@ -38,8 +38,6 @@ public class Graph{
 		adj.get(v).add(u);
 	}
 	
-	public static void DFS(Graph G, int u){
-	}
 
 	public String toString(){
 		StringBuilder s = new StringBuilder();
@@ -53,6 +51,9 @@ public class Graph{
 		}
 		return s.toString();
 	}
+	public int V(){
+		return V;
+	}
 
 	public static void main(String[] args){
 		Scanner in = new Scanner(System.in);
@@ -65,6 +66,12 @@ public class Graph{
 		for (int v: graph.adj(2)){
 			System.out.println(v);
 		}
+		DFS dfs = new DFS(graph, 1);
 		System.out.println(graph);
+		System.out.println(dfs.count());
+		System.out.println("Pre order:");
+		for(int i = 0; i < dfs.postorder.size(); i++){
+			System.out.println(dfs.postorder.get(i));
+		}
 	}
 }
